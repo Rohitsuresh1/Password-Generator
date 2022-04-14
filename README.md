@@ -15,7 +15,7 @@ When the user clicks generate password button, the window proms a list of questi
 ## Screenshot
 
 
-    ![Screen Shot](./assets/Screen%20Shot.png)
+    ![Alt text](https://github.com/Rohitsuresh1/Password-Generator/blob/main/assets/Screen%20Shot.png "Screenshot")
    
 
 ## Credits 
