@@ -20,6 +20,7 @@ var randomGenerator = function (array){
   return (text);
 }
 var userOptions = function () {
+  
   letterSelection = window.confirm("Do you want letters in your password?");
   if(letterSelection){
     mixCase=window.prompt("Do you want all letters to be UPPERCASE(U), lowercase(l) or MiXeD(m)? Enter U, l or m");
@@ -39,6 +40,7 @@ var userOptions = function () {
 // Getting user input 
 var generatePassword = function () {
  userOptions();
+ passwordContainer="";
  var text="";
  if(letterSelection){
     if(mixCase==="u"||mixCase==="U"){
@@ -55,6 +57,7 @@ var generatePassword = function () {
       passwordContainer=passwordContainer.concat(spcArr);
     }
     text= randomGenerator(passwordContainer);
+    console.log("password conatainer:",passwordContainer);
     return(text);
  } else if(numSelection){
     passwordContainer=passwordContainer.concat(numArr);
@@ -62,10 +65,14 @@ var generatePassword = function () {
       passwordContainer=passwordContainer.concat(spcArr);
     }
     text= randomGenerator(passwordContainer);
+    console.log("password conatainer:",passwordContainer);
+
     return(text);
  } else if(specialSelection){
     passwordContainer=passwordContainer.concat(spcArr);
     text=randomGenerator(passwordContainer);
+    console.log("password conatainer:",passwordContainer);
+
     return(text);
  } else {
    window.alert("You need to choose one or more of the options!");
@@ -78,7 +85,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var passwordContainer="";
+  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
