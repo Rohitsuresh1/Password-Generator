@@ -15,7 +15,7 @@ When the user clicks generate password button, the window proms a list of questi
 ## Screenshot
 
 
-    ![Screen Shot](/assets/)
+    ![Screen Shot](./assets/Screen%20Shot.png)
    
 
 ## Credits 

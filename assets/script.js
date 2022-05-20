@@ -2,30 +2,20 @@ var inSelection;
 var letterSelection;
 var specialSelection;
 var numSelection;
-var upperCase;
-var chooseCase;
-var allUpper;
-var allLower;
 var mixCase;
 var length;
 var upArr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numArr="0123456789";
 var loArr = "abcdefghijklmnopqrstuvwxyz";
-var charArr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var spcArr= "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-var mixArr= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~0123456789";
-var lowSpcArr="abcdefghijklmnopqrstuvwxyz!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-var numSpcArr="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~0123456789";
 var passwordContainer="";
 
 
 // Assignment code here
 var randomGenerator = function (array){
   var text = "";
-  console.log("In generator function",passwordContainer);
   for (i=0, l=array.length; i<length; i++){
     text+=array.charAt(Math.floor(Math.random()*array.length));
-    console.log("text",text);
   }
   return (text);
 }
@@ -51,7 +41,6 @@ var generatePassword = function () {
  userOptions();
  var text="";
  if(letterSelection){
-   console.log("letterselection True");
     if(mixCase==="u"||mixCase==="U"){
       passwordContainer=upArr;
     } else if(mixCase==="l"||mixCase==="L"){
@@ -66,20 +55,22 @@ var generatePassword = function () {
       passwordContainer=passwordContainer.concat(spcArr);
     }
     text= randomGenerator(passwordContainer);
+    return(text);
  } else if(numSelection){
     passwordContainer=passwordContainer.concat(numArr);
     if(specialSelection){
       passwordContainer=passwordContainer.concat(spcArr);
     }
     text= randomGenerator(passwordContainer);
+    return(text);
  } else if(specialSelection){
     passwordContainer=passwordContainer.concat(spcArr);
     text=randomGenerator(passwordContainer);
+    return(text);
  } else {
    window.alert("You need to choose one or more of the options!");
    userOptions();
  }
- return(text);
 };
 
 // Get references to the #generate element
@@ -87,6 +78,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  var passwordContainer="";
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
